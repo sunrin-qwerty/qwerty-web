@@ -1,33 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import qwertyLogo from '/qwerty.svg'
 import './App.css'
 
+import Loding from './Loding'
+
+import card_f from '/card-front.svg'
+import card_b from '/card-back.svg'
+
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header className='header'>
+        <img src={qwertyLogo} alt="Qwerty Logo" className='logo' />
+        <ul className='nav'>
+          <li><a href="introduce">소개</a></li>
+          <li><a href="portfolio">포트폴리오</a></li>
+          <li><a href="apply">지원</a></li>
+        </ul>
+      </header>
+
+      <section className='main-section'>
+        <div className='main-container'>
+          <div className='text-container'>
+            <a className="main-text">
+              정제되고 체계적으로<br/>
+              <span id="qwerty-color">
+                {"QWERTY".split("").map((ch, i) => (
+                  <span key={i} className="rise-letter" style={{ animationDelay: `${i * 0.12}s` }}>
+                    {ch}
+                  </span>
+                ))} 답게
+              </span>
+            </a>
+
+            <div className='sub-text-container'>
+              <a className='sub-text'>
+                QWERTY는 선린인터넷고등학교의<br/>
+                웹 개발 일반 동아리 입니다.<br/>
+              </a>      
+              <a className='sub-text'>
+                Become Standard라는 슬로건을 가지고<br/>
+                새로운 기준이 되기위해 노력하고 있습니다.
+              </a>
+            </div>
+          </div>
+            <div className='card-container'>
+              <img src={card_f} alt="Card Front" className='card1' />
+              <img src={card_b} alt="Card Back" className='card2' />
+            </div>
+          </div>
+      </section>
     </>
   )
 }

@@ -1,0 +1,82 @@
+.text {
+    color: #000;
+    font-family: 'SUIT', sans-serif;
+}
+
+.logo {
+    width: 20vw;
+    height: 20vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: logo-spin infinite 20s linear;
+}
+
+.title {
+    font-size: 9vw;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 3vw;
+    margin-top: 1vh;
+}
+
+.loding-pages {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    overflow: hidden;
+    background: radial-gradient(
+        circle at center,
+        #7E92F6 10%,
+        transparent 50%
+    );
+}
+
+.loding-pages .under {
+    width: 10vh;
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.loding-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loding-container .logo,
+.loding-container .text {
+    opacity: 0;
+    display: none;
+}
+
+@keyframes logoFadeIn {
+    from { opacity: 0; transform: translateX(-5vw); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes textFadeIn {
+    from { opacity: 0; transform: translateX(5vw); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.loding-container.logo-in .logo {
+    display: block;
+    animation: logoFadeIn 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.loding-container.logo-in .text {
+    display: flex;
+    flex-direction: column;
+    animation: textFadeIn 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
