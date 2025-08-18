@@ -1,7 +1,7 @@
 import qwertyLogo from '/qwerty.svg'
 import './App.css'
 
-import Loding from './Loding'
+// import Loding from './Loding'
 
 import card_f from '/card-front.svg'
 import card_b from '/card-back.svg'
