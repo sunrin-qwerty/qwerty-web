@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import qwertyLogo from '/qwerty.svg'
 import './style/Loding.css'
 import under from '/under.svg'
