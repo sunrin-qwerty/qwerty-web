@@ -39,7 +39,7 @@
 .header .nav li a {
   font-family: 'SUIT';
   font-weight: medium;
-  font-size: 2vw;
+  font-size: 100%;
   text-decoration: none;
   color: black;
   padding: 0.5rem;
