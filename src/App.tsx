@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import qwertyLogo from '/qwerty.svg'
 import './App.css'
+import './style/loding.css'
 
 import card_f from '/card-front.svg'
 import card_b from '/card-back.svg'
