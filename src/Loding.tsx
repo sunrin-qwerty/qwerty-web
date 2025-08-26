@@ -21,7 +21,6 @@ const Loding = () => {
                     <h2 className="subtitle">선린인터넷고등학교 웹 개발 동아리</h2>
                 </div>
             </div>
-            <img src={under} alt="Under Logo" className="under" />
         </div>
     )
 }

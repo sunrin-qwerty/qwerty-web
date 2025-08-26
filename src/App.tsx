@@ -6,6 +6,7 @@ import './style/loding.css'
 import card_f from '/card-front.svg'
 import card_b from '/card-back.svg'
 import Loding from './Loding'
+import projects from './data/project.json'
 
 function App() {
   const [showLoading, setShowLoading] = useState(true)
@@ -13,6 +14,34 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => setShowLoading(false), 2000)
     return () => clearTimeout(timer)
+  }, [])
+
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      const targetEl = e.target as Element | null
+      const a = targetEl?.closest && (targetEl.closest('a[href^="#"]') as HTMLAnchorElement | null)
+      if (!a) return
+      const href = a.getAttribute('href')
+      if (!href || !href.startsWith('#')) return
+      const id = href.slice(1)
+      const target = document.getElementById(id)
+      if (!target) return
+      e.preventDefault()
+      target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' })
+      history.pushState(null, '', '#' + id)
+    }
+
+    document.addEventListener('click', onClick)
+
+    const idOnLoad = location.hash.replace('#', '')
+    if (idOnLoad) {
+      const target = document.getElementById(idOnLoad)
+      if (target) target.scrollIntoView({ block: 'center' })
+    }
+
+    return () => {
+      document.removeEventListener('click', onClick)
+    }
   }, [])
 
   return (
@@ -24,24 +53,30 @@ function App() {
       )}
 
       {!showLoading && (
-        <>
-          <header className='header'>
-            <img src={qwertyLogo} alt="Qwerty Logo" className='logo' />
-            <ul className='nav'>
-              <li><a href="#introduce">소개</a></li>
-              <li><a href="#portfolio">포트폴리오</a></li>
-              <li><a href="#apply">지원</a></li>
-            </ul>
-          </header>
+        <main className="snap-scroll">
+          <section className="main-section snap-section">
+            <header className="header">
+              <img src={qwertyLogo} alt="Qwerty Logo" className="logo" />
 
-          <section className='main-section'>
-            <div className='main-container'>
+              <input type="checkbox" id="nav-toggle" className="nav-toggle" aria-hidden="true" />
+              <label htmlFor="nav-toggle" className="nav-toggle-btn" aria-label="메뉴 토글">
+                <span className="hamburger" />
+              </label>
+
+              <ul className="nav">
+                <li><a href="#main">소개</a></li>
+                <li><a href="#portfolio">포트폴리오</a></li>
+                <li><a href="#apply">지원</a></li>
+              </ul>
+            </header>
+
+            <div className='main-container' id='main'>
               <div className='text-container'>
                 <a className="main-text">
                   정제되고 체계적으로<br/>
                   <span id="qwerty-color">
                     {"QWERTY".split("").map((ch, i) => (
-                      <span key={i} className="rise-letter" style={{ animationDelay: `${i * 0.12}s` }}>
+                      <span key={i} className="rise-letter" style={{ animationDelay: `${i * 0.15}s` }}>
                         {ch}
                       </span>
                     ))} 답게
@@ -66,10 +101,27 @@ function App() {
             </div>
           </section>
 
-          <section className='portfolio'>
-
+          <section className="portfolio-container" id='portfolio'>
+            <div className='portfolio-list'>
+              {projects.projects?.map((project, index) => (
+                <div className='portfolio-item' key={index}>
+                  <h3 className='portfolio-title'>{project.title}</h3>
+                  <p className='portfolio-description'>{project.description}</p>
+                  <p className='use'>{project.use.join(", ")}</p>
+                  <p className='user'>{project.user}</p>
+                </div>
+              ))}
+            </div>
           </section>
-        </>
+
+          <section className="apply-section snap-section" id='apply'>
+            <h2 className='apply-title'>지원하기</h2>
+          </section>
+
+          <footer>
+            <p>© 2023 QWERTY. All rights reserved.</p>
+          </footer>
+        </main>
       )}
     </>
   )

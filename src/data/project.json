@@ -1,0 +1,223 @@
+{
+    "projects": [
+        {
+            "title": "QWERTY",
+            "description": "망한쿼티",
+            "user": "사용자 이름",
+            "use": [
+                "React",
+                "Express.js"
+            ],
+            "Preview": "",
+            "main-image": "",
+            "period": "1개월",
+            "explanation": "Express와 React를 사용하여 개발한 웹 애플리케이션입니다. 사용자 인증, 데이터베이스 연동, RESTful API 설계 등을 포함합니다.",
+            "link": [
+                {
+                    "github": "https://github.com/kimrasng/",
+                    "demo": "kimrasng.kr"
+                }
+            ]
+        },
+        {
+            "title": "TodoList Pro",
+            "description": "협업 가능한 할일 관리 앱",
+            "user": "김철수",
+            "use": [
+                "React",
+                "Redux",
+                "Firebase"
+            ],
+            "Preview": "",
+            "main-image": "",
+            "period": "3주",
+            "explanation": "실시간 동기화와 권한 관리가 가능한 Todo 앱입니다. 모바일 반응형 UI와 알림 기능을 포함합니다.",
+            "link": [
+                {
+                    "github": "https://github.com/kimcheolsu/todolist-pro",
+                    "demo": "https://todolist-pro.example.com"
+                }
+            ]
+        },
+        {
+            "title": "Personal Portfolio",
+            "description": "개인 포트폴리오 사이트",
+            "user": "이영희",
+            "use": [
+                "Gatsby",
+                "GraphQL",
+                "Netlify"
+            ],
+            "Preview": "",
+            "main-image": "",
+            "period": "2주",
+            "explanation": "프로젝트 소개와 블로그가 포함된 정적 사이트. SEO 최적화와 빠른 빌드 설정을 적용했습니다.",
+            "link": [
+                {
+                    "github": "https://github.com/yeonghee/portfolio",
+                    "demo": "https://yeonghee.dev"
+                }
+            ]
+        },
+        {
+            "title": "ShopMock",
+            "description": "소규모 이커머스 데모",
+            "user": "박민수",
+            "use": [
+                "Next.js",
+                "Stripe",
+                "MongoDB"
+            ],
+            "Preview": "",
+            "main-image": "",
+            "period": "1.5개월",
+            "explanation": "상품 목록, 장바구니, 결제 연동이 가능한 이커머스 프로토타입입니다. 서버사이드 렌더링과 결제 테스트를 구현했습니다.",
+            "link": [
+                {
+                    "github": "https://github.com/minsu/shopmock",
+                    "demo": "https://shopmock.example.com"
+                }
+            ]
+        },
+        {
+            "title": "Chatly",
+            "description": "실시간 채팅 애플리케이션",
+            "user": "오지은",
+            "use": [
+                "Socket.io",
+                "Node.js",
+                "Vue.js"
+            ],
+            "Preview": "",
+            "main-image": "",
+            "period": "3주",
+            "explanation": "룸 기반 채팅, 메시지 저장, 실시간 알림 기능을 제공하는 채팅 서비스입니다. WebSocket을 사용해 높은 응답성을 보장합니다.",
+            "link": [
+                {
+                    "github": "https://github.com/jieun/chatly",
+                    "demo": "https://chatly.example.com"
+                }
+            ]
+        },
+        {
+            "title": "WeatherBoard",
+            "description": "날씨 대시보드",
+            "user": "한수연",
+            "use": [
+                "React",
+                "OpenWeatherMap API",
+                "Chart.js"
+            ],
+            "Preview": "",
+            "main-image": "",
+            "period": "1주",
+            "explanation": "다중 도시의 기상 정보를 보여주고, 이전 데이터 기반으로 간단한 그래프를 제공하는 대시보드입니다.",
+            "link": [
+                {
+                    "github": "https://github.com/sooyeon/weatherboard",
+                    "demo": "https://weatherboard.example.com"
+                }
+            ]
+        },
+        {
+            "title": "BlogCMS",
+            "description": "간단한 블로그용 CMS",
+            "user": "조하늘",
+            "use": [
+                "Django",
+                "SQLite",
+                "Bootstrap"
+            ],
+            "Preview": "",
+            "main-image": "",
+            "period": "2주",
+            "explanation": "관리자 페이지에서 글 작성, 카테고리 관리, 댓글 관리를 할 수 있는 소규모 CMS입니다.",
+            "link": [
+                {
+                    "github": "https://github.com/haneul/blogcms",
+                    "demo": ""
+                }
+            ]
+        },
+        {
+            "title": "Recipe Finder",
+            "description": "재료 기반 레시피 검색 서비스",
+            "user": "김민지",
+            "use": [
+                "React",
+                "Express.js",
+                "PostgreSQL"
+            ],
+            "Preview": "",
+            "main-image": "",
+            "period": "4주",
+            "explanation": "사용자가 가진 재료로 만들 수 있는 레시피를 추천해주는 서비스로, 외부 API와 자체 DB를 조합해 검색 기능을 구현했습니다.",
+            "link": [
+                {
+                    "github": "https://github.com/minji/recipe-finder",
+                    "demo": "https://recipes.example.com"
+                }
+            ]
+        },
+        {
+            "title": "StockTracker",
+            "description": "주식 포트폴리오 추적기",
+            "user": "류준호",
+            "use": [
+                "Angular",
+                "RxJS",
+                "D3.js"
+            ],
+            "Preview": "",
+            "main-image": "",
+            "period": "1개월",
+            "explanation": "실시간 시세 조회와 포트폴리오 성과 시각화를 제공하는 웹 애플리케이션입니다. 차트로 수익률을 쉽게 확인할 수 있습니다.",
+            "link": [
+                {
+                    "github": "https://github.com/junho/stocktracker",
+                    "demo": ""
+                }
+            ]
+        },
+        {
+            "title": "Whiteboard Live",
+            "description": "실시간 협업 화이트보드",
+            "user": "윤성호",
+            "use": [
+                "WebRTC",
+                "Canvas API",
+                "Express.js"
+            ],
+            "Preview": "",
+            "main-image": "",
+            "period": "3주",
+            "explanation": "여러 사용자가 동시에 그림을 그리고 포인터를 공유할 수 있는 리얼타임 화이트보드입니다. 세션 초대 기능을 포함합니다.",
+            "link": [
+                {
+                    "github": "https://github.com/seungho/whiteboard-live",
+                    "demo": "https://whiteboard-live.example.com"
+                }
+            ]
+        },
+        {
+            "title": "FitTrack",
+            "description": "개인 운동 기록 관리 앱",
+            "user": "최다영",
+            "use": [
+                "Flutter",
+                "Firebase",
+                "REST API"
+            ],
+            "Preview": "",
+            "main-image": "",
+            "period": "4주",
+            "explanation": "운동 기록을 관리하고 통계로 보여주는 모바일 앱입니다. 푸시 알림 및 사용자 목표 설정 기능을 제공합니다.",
+            "link": [
+                {
+                    "github": "https://github.com/dayoung/fittrack",
+                    "demo": ""
+                }
+            ]
+        }
+    ]
+}
