@@ -119,7 +119,7 @@ function App() {
           </section>
 
           <footer>
-            <p>© 2023 QWERTY. All rights reserved.</p>
+            <p>© 2025 QWERTY. All rights reserved.</p>
           </footer>
         </main>
       )}
