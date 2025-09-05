@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import qwertyLogo from '/qwerty.svg'
+import qwertyLogo from "./assets/qwerty.svg"
 
 const Loding = () => {
     const [stage, setStage] = useState('')

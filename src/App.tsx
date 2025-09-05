@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import qwertyLogo from '/qwerty.svg'
+import qwertyLogo from "./assets/qwerty.svg"
 import './App.css'
 import './style/loding.css'
 
@@ -7,6 +7,17 @@ import card_f from '/card-front.svg'
 import card_b from '/card-back.svg'
 import Loding from './Loding'
 import projects from './data/project.json'
+
+type Project = {
+  id?: string | number
+  title: string
+  description: string
+  use: string[]
+  user: string
+  demo?: string
+  repo?: string
+  link?: string
+}
 
 function App() {
   const [showLoading, setShowLoading] = useState(true)
@@ -43,6 +54,16 @@ function App() {
       document.removeEventListener('click', onClick)
     }
   }, [])
+
+  const projectList: Project[] = (() => {
+    const data = projects as unknown
+    if (Array.isArray(data)) return data as Project[]
+    if (data && typeof data === 'object' && 'projects' in (data as object)) {
+      const p = (data as { projects?: unknown }).projects
+      if (Array.isArray(p)) return p as Project[]
+    }
+    return []
+  })()
 
   return (
     <>
@@ -101,21 +122,63 @@ function App() {
             </div>
           </section>
 
-          <section className="portfolio-container" id='portfolio'>
-            <div className='portfolio-list'>
-              {projects.projects?.map((project, index) => (
-                <div className='portfolio-item' key={index}>
-                  <h3 className='portfolio-title'>{project.title}</h3>
-                  <p className='portfolio-description'>{project.description}</p>
-                  <p className='use'>{project.use.join(", ")}</p>
-                  <p className='user'>{project.user}</p>
-                </div>
-              ))}
+          <section className="portfolio-container" id="portfolio">
+            <h2 className="portfolio-title-section">포트폴리오</h2>
+
+            <div className="portfolio-slider-wrap">
+              <div id="portfolio-list" className="portfolio-list">
+                {projectList.map((project, index) => {
+                  const id = project.id ?? index
+                  const modalId = `modal-toggle-${id}`
+
+                  const links: { label: string; url: string }[] = []
+                  if (project.demo) links.push({ label: '데모', url: project.demo })
+                  if (project.repo) links.push({ label: '레포지토리', url: project.repo })
+                  if (project.link) links.push({ label: '링크', url: project.link })
+
+                  return (
+                    <div className="portfolio-item-wrap" key={id}>
+                      <input type="checkbox" id={modalId} className="modal-toggle" aria-hidden="true" />
+
+                      <label htmlFor={modalId} className="portfolio-item" role="button">
+                        <h3 className="portfolio-title">{project.title}</h3>
+                        <p className="portfolio-description">{project.description}</p>
+                        <p className="use">{project.use.join(', ')}</p>
+                        <p className="user">{project.user}</p>
+                      </label>
+
+                      <div className="modal" role="dialog" aria-modal="true" aria-labelledby={`modal-title-${id}`}>
+                        <label htmlFor={modalId} className="modal-overlay" />
+
+                        <div className="modal-content">
+                          <h3 id={`modal-title-${id}`}>{project.title}</h3>
+                          <p className="modal-description">{project.description}</p>
+                          <p className="modal-use"><strong>사용 기술:</strong> {project.use.join(', ')}</p>
+                          <p className="modal-user"><strong>담당:</strong> {project.user}</p>
+
+                          {links.length > 0 && (
+                            <p className="modal-links">
+                              {links.map((l, i) => (
+                                <a key={i} href={l.url} target="_blank" rel="noopener noreferrer">{l.label}</a>
+                              ))}
+                            </p>
+                          )}
+
+                          <label htmlFor={modalId} className="modal-close" role="button" aria-label="닫기">
+                            닫기
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           </section>
 
           <section className="apply-section snap-section" id='apply'>
             <h2 className='apply-title'>지원하기</h2>
+            <h2 className='apply-subtitle'>아직 지원 시즌아 이닙니다.</h2>
           </section>
 
           <footer>
