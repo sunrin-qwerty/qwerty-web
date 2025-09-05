@@ -178,7 +178,7 @@ function App() {
 
           <section className="apply-section snap-section" id='apply'>
             <h2 className='apply-title'>지원하기</h2>
-            <h2 className='apply-subtitle'>아직 지원 시즌아 이닙니다.</h2>
+            <h2 className='apply-subtitle'>현제는 지원을 받고있지 않습니다.</h2>
           </section>
 
           <footer>
