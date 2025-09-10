@@ -102,8 +102,9 @@ function App() {
                       <span key={i} className="rise-letter" style={{ animationDelay: `${i * 0.15}s` }}>
                         {ch}
                       </span>
-                    ))} 답게
+                    ))} 
                   </span>
+                  답게
                 </a>
 
                 <div className='sub-text-container'>
