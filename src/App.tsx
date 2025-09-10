@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import CountUp from './components/CountUp'
+
 import qwertyLogo from "./assets/qwerty.svg"
 import './App.css'
 import './style/loding.css'
@@ -122,6 +124,42 @@ function App() {
             </div>
           </section>
 
+
+
+          <section className='info-section'>
+
+            <div className='info-counter'>
+              <a className='info-project-text'>
+
+                지금까지
+                  <CountUp
+                    from={0}
+                    to={50}
+                    separator=","
+                    direction="up"
+                    duration={1.5}
+                    className="count-up-text"
+                  />
+                +개의 프로젝트를 진행했습니다.
+
+              </a>
+              <a className='info-user-text'>
+                2025년 기준
+                  <CountUp
+                    from={0}
+                    to={20}
+                    separator=","
+                    direction="up"
+                    duration={1.5}
+                    className="count-up-text"
+                  />
+                명의 동아리원과 함께합니다.
+              </a>
+            </div>
+
+          </section>
+          
+
           <section className="portfolio-container" id="portfolio">
             <h2 className="portfolio-title-section">포트폴리오</h2>
 
@@ -154,7 +192,7 @@ function App() {
                           <h3 id={`modal-title-${id}`}>{project.title}</h3>
                           <p className="modal-description">{project.description}</p>
                           <p className="modal-use"><strong>사용 기술:</strong> {project.use.join(', ')}</p>
-                          <p className="modal-user"><strong>담당:</strong> {project.user}</p>
+                          <p className="modal-user"><strong>참여인력:</strong> {project.user}</p>
 
                           {links.length > 0 && (
                             <p className="modal-links">
@@ -165,7 +203,7 @@ function App() {
                           )}
 
                           <label htmlFor={modalId} className="modal-close" role="button" aria-label="닫기">
-                            닫기
+                            <img src="/close.png" alt="Close" />
                           </label>
                         </div>
                       </div>
@@ -178,7 +216,7 @@ function App() {
 
           <section className="apply-section snap-section" id='apply'>
             <h2 className='apply-title'>지원하기</h2>
-            <h2 className='apply-subtitle'>현제는 지원을 받고있지 않습니다.</h2>
+            <h2 className='apply-subtitle'>동아리 폐부로 인해여 지원을 할수 없습니다.</h2>
           </section>
 
           <footer>
