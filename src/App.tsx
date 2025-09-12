@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import CountUp from './components/CountUp'
 
-import qwertyLogo from "./assets/qwerty.svg"
+import qwertyLogo from "/qwerty.svg"
 import './App.css'
 import './style/loding.css'
 
@@ -9,6 +9,7 @@ import card_f from '/card-front.svg'
 import card_b from '/card-back.svg'
 import Loding from './Loding'
 import projects from './data/project.json'
+import info from './data/info.json'
 
 type Project = {
   id?: string | number
@@ -19,6 +20,12 @@ type Project = {
   demo?: string
   repo?: string
   link?: string
+}
+
+type Info = {
+  user: string
+  project: string
+  age: string
 }
 
 function App() {
@@ -66,6 +73,25 @@ function App() {
     }
     return []
   })()
+
+  const infoList: string[] = (() => {
+  const data = info as unknown
+  if (data && typeof data === 'object') {
+    const obj = data as Record<string, unknown>
+
+    if ('info' in obj && obj.info && typeof obj.info === 'object') {
+      const i = obj.info as Partial<Info>
+      return [String(i.project ?? "0"), String(i.user ?? "0"), String(i.age ?? "0")]
+    }
+
+    const top = obj as Partial<Info>
+    if ('project' in top || 'user' in top || 'age' in top) {
+      return [String(top.project ?? "0"), String(top.user ?? "0"), String(top.age ?? "0")]
+    }
+  }
+  return ["0", "0", "0"]
+})()
+
 
   return (
     <>
@@ -130,32 +156,29 @@ function App() {
           <section className='info-section'>
 
             <div className='info-counter'>
-              <a className='info-project-text'>
-
-                지금까지
-                  <CountUp
-                    from={0}
-                    to={50}
-                    separator=","
-                    direction="up"
-                    duration={1.5}
-                    className="count-up-text"
-                  />
-                +개의 프로젝트를 진행했습니다.
-
-              </a>
-              <a className='info-user-text'>
-                2025년 기준
-                  <CountUp
-                    from={0}
-                    to={20}
-                    separator=","
-                    direction="up"
-                    duration={1.5}
-                    className="count-up-text"
-                  />
-                명의 동아리원과 함께합니다.
-              </a>
+              {infoList.map((value, index) => {
+                const labels = ['진행한 프로젝트', '활동 인원', '동아리 연차']
+                const units = ['개', '명', '년']
+                return (
+                  <div className='info-text-container' key={index}>
+                    <a className='info-text'>
+                      <CountUp
+                        from={0}
+                        to={Number(value)}
+                        separator=","
+                        direction="up"
+                        duration={1.5}
+                        className="count-up-text"
+                      />
+                      {units[index]}
+                    </a>
+                    <a className='info-subtext'>
+                      {labels[index]}
+                    </a>
+                  </div>
+                )
+              }
+              )}
             </div>
 
           </section>
