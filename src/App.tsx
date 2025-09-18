@@ -240,7 +240,6 @@ function App() {
 
           <section className="apply-section snap-section" id='apply'>
             <h2 className='apply-title'>지원하기</h2>
-            <h2 className='apply-subtitle'>동아리 폐부로 인해여 지원을 할수 없습니다.</h2>
           </section>
 
           <footer>
