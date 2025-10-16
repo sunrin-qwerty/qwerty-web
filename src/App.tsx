@@ -12,6 +12,7 @@ import projects from './data/project.json'
 import info from './data/info.json'
 
 type Project = {
+  explanation: ReactNode
   id?: string | number
   title: string
   description: string
@@ -30,6 +31,13 @@ type Info = {
 
 function App() {
   const [showLoading, setShowLoading] = useState(true)
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    grade: '',
+    experience: '',
+    motivation: ''
+  })
 
   useEffect(() => {
     const timer = setTimeout(() => setShowLoading(false), 2000)
@@ -92,6 +100,29 @@ function App() {
   return ["0", "0", "0"]
 })()
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // 실제 구현에서는 여기서 서버로 데이터를 전송하거나 이메일을 보낼 수 있습니다
+    alert('지원서가 제출되었습니다! 곧 연락드리겠습니다.')
+    console.log('Form submitted:', formData)
+    // 폼 초기화
+    setFormData({
+      name: '',
+      email: '',
+      grade: '',
+      experience: '',
+      motivation: ''
+    })
+  }
+
 
   return (
     <>
@@ -103,7 +134,7 @@ function App() {
 
       {!showLoading && (
         <main className="snap-scroll">
-          <section className="main-section snap-section">
+          <section className="main-section">
             <header className="header">
               <img src={qwertyLogo} alt="Qwerty Logo" className="logo" />
 
@@ -158,7 +189,7 @@ function App() {
             <div className='info-counter'>
               {infoList.map((value, index) => {
                 const labels = ['진행한 프로젝트', '활동 인원', '동아리 연차']
-                const units = ['개', '명', '년']
+                const units = ['+개', '명', '년']
                 return (
                   <div className='info-text-container' key={index}>
                     <a className='info-text'>
@@ -217,6 +248,7 @@ function App() {
                           <p className="modal-description">{project.description}</p>
                           <p className="modal-use"><strong>사용 기술:</strong> {project.use.join(', ')}</p>
                           <p className="modal-user"><strong>참여인력:</strong> {project.user}</p>
+                          <p className="modal-explanation"><strong>설명:</strong> {project.explanation}</p>
 
                           {links.length > 0 && (
                             <p className="modal-links">
@@ -238,12 +270,19 @@ function App() {
             </div>
           </section>
 
-          <section className="apply-section snap-section" id='apply'>
+          <section className="apply-section" id='apply'>
             <h2 className='apply-title'>지원하기</h2>
+            <div className='apply-content'>
+              <p className='apply-description'>
+                QWERTY 동아리에 관심이 있으시다면 언제든지 지원해주세요!<br/>
+                새로운 기준이 되기 위해 함께 노력할 동료를 찾고 있습니다.
+              </p>
+              <a>지금은 동아리 지원 기간이 아닙니다.</a>
+            </div>
           </section>
 
           <footer>
-            <p>© 2025 QWERTY. All rights reserved.</p>
+            <p>© 2025 kim dohyun. All rights reserved.</p>
           </footer>
         </main>
       )}
