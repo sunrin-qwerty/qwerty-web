@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import type { ReactNode } from 'react'
 import CountUp from './components/CountUp'
 
 import qwertyLogo from "/qwerty.svg"
@@ -31,13 +32,7 @@ type Info = {
 
 function App() {
   const [showLoading, setShowLoading] = useState(true)
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    grade: '',
-    experience: '',
-    motivation: ''
-  })
+
 
   useEffect(() => {
     const timer = setTimeout(() => setShowLoading(false), 2000)
@@ -100,28 +95,7 @@ function App() {
   return ["0", "0", "0"]
 })()
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // 실제 구현에서는 여기서 서버로 데이터를 전송하거나 이메일을 보낼 수 있습니다
-    alert('지원서가 제출되었습니다! 곧 연락드리겠습니다.')
-    console.log('Form submitted:', formData)
-    // 폼 초기화
-    setFormData({
-      name: '',
-      email: '',
-      grade: '',
-      experience: '',
-      motivation: ''
-    })
-  }
 
 
   return (
