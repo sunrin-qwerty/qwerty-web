@@ -708,18 +708,24 @@ footer p {
   .sub-text { font-size: 4vw; line-height: 1.6; margin-bottom: 0.75rem; }
 
   .card-container {
-    width: 82vw;
+    width: 78vw;
+    max-width: 340px;
     left: 0;
-    aspect-ratio: 3/2;
-    overflow: hidden;
+    margin: 0 auto;
+    aspect-ratio: 426 / 241;
+    overflow: visible;
   }
-  .card-container img { width: 100%; height: 100%; }
+  .card-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
   .card-container .card1 {
     margin-left: 0;
     animation: throw1-mob 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
   }
   .card-container .card2 {
-    margin-top: 5%;
+    margin-top: 0;
     animation: throw2-mob 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
   }
 
@@ -780,11 +786,11 @@ footer p {
 @keyframes throw1-mob {
   0%   { transform: translate(-150%, -50%) rotate(-45deg); opacity: 0; }
   60%  { opacity: 1; }
-  100% { transform: translate(0, 0) rotate(-12deg); opacity: 1; }
+  100% { transform: translate(-14%, -6%) rotate(-8deg); opacity: 1; }
 }
 
 @keyframes throw2-mob {
   0%   { transform: translate(150%, 50%) rotate(60deg); opacity: 0; }
   60%  { opacity: 1; }
-  100% { transform: translate(0, 0) rotate(18deg); opacity: 1; }
+  100% { transform: translate(14%, 6%) rotate(8deg); opacity: 1; }
 }
