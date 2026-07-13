@@ -27,12 +27,29 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f3f5ff 20%,
+    #edf0ff 45%,
+    #f3f5ff 70%,
+    #ffffff 100%
+  );
+  background-attachment: fixed;
+}
+
+@supports (-webkit-touch-callout: none) {
+  html {
+    background-attachment: scroll;
+  }
+}
+
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .snap-scroll {
